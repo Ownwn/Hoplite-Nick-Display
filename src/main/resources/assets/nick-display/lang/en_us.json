@@ -1,0 +1,8 @@
+{
+    "yacl3.config.nick-display:nick-display.textX": "Text X Position",
+    "yacl3.config.nick-display:nick-display.textY": "Text Y Position",
+    "yacl3.config.nick-display:nick-display.color": "Color",
+    "yacl3.config.nick-display:nick-display.enabled": "Enable the mod",
+
+    "yacl3.config.nick-display:nick-display.category.Nick": "Nick Display"
+}
