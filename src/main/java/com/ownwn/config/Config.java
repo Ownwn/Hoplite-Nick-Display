@@ -5,7 +5,6 @@ import dev.isxander.yacl3.config.v2.api.SerialEntry;
 import dev.isxander.yacl3.config.v2.api.autogen.AutoGen;
 import dev.isxander.yacl3.config.v2.api.autogen.Boolean;
 import dev.isxander.yacl3.config.v2.api.autogen.ColorField;
-import dev.isxander.yacl3.config.v2.api.autogen.IntSlider;
 import dev.isxander.yacl3.config.v2.api.serializer.GsonConfigSerializerBuilder;
 import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.client.gui.screen.Screen;
@@ -33,18 +32,24 @@ public class Config {
 
     @SerialEntry
     @AutoGen(category = "Nick")
-    @IntSlider(min = 0, max = 1000, step = 1)
-    public int textX = 100;
-
-    @SerialEntry
-    @AutoGen(category = "Nick")
-    @IntSlider(min = 0, max = 800, step = 1)
-    public int textY = 100;
+    @Boolean(formatter = Boolean.Formatter.ON_OFF)
+    public boolean moveWithClick = true;
 
     @SerialEntry
     @AutoGen(category = "Nick")
     @ColorField
     public Color color = Color.RED;
+
+    @SerialEntry
+    public float scale = 1f;
+
+    @SerialEntry
+    public int textY = 100;
+
+    @SerialEntry
+    public int textX = 100;
+
+
 
 
 }

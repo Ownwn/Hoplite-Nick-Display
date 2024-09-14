@@ -3,15 +3,15 @@
 	"id": "nick-display",
 	"version": "${version}",
 	"name": "Nick Display",
-	"description": "This is an example description! Tell everyone what your mod is about!",
+	"description": "Displays your current Hoplite nickname on the screen",
 	"authors": [
-		"Me!"
+		"Ownwn"
 	],
 	"contact": {
-		"homepage": "https://fabricmc.net/",
-		"sources": "https://github.com/FabricMC/fabric-example-mod"
+		"homepage": "https://github.com/Ownwn",
+		"sources": "https://github.com/Ownwn/Hoplite-Nick-Display"
 	},
-	"license": "CC0-1.0",
+	"license": "GPL",
 	"icon": "assets/nick-display/icon.png",
 	"environment": "*",
 	"entrypoints": {

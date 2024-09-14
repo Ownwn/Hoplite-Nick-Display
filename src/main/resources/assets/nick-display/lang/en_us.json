@@ -1,8 +1,11 @@
 {
-    "yacl3.config.nick-display:nick-display.textX": "Text X Position",
-    "yacl3.config.nick-display:nick-display.textY": "Text Y Position",
+    "yacl3.config.nick-display:nick-display.moveWithClick": "Enable moving the text",
+    "yacl3.config.nick-display:nick-display.moveWithClick.desc": "Click & Scroll on the screen with the chat window open to move the text",
     "yacl3.config.nick-display:nick-display.color": "Color",
-    "yacl3.config.nick-display:nick-display.enabled": "Enable the mod",
+    "yacl3.config.nick-display:nick-display.enabled": "Toggle Display",
 
-    "yacl3.config.nick-display:nick-display.category.Nick": "Nick Display"
+    "yacl3.config.nick-display:nick-display.category.Nick": "Nick Display",
+
+    "key.nick-display.toggle": "Toggle",
+    "category.nick-display.nick-display": "Nick Display"
 }
