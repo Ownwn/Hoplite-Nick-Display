@@ -7,5 +7,6 @@
     "yacl3.config.nick-display:nick-display.category.Nick": "Nick Display",
 
     "key.nick-display.toggle": "Toggle",
+    "key.nick-display.renick": "Send Renick Command",
     "category.nick-display.nick-display": "Nick Display"
 }

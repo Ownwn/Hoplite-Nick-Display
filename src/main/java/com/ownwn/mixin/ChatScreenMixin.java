@@ -8,7 +8,7 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(ChatScreen.class)
-public class ExampleMixin {
+public class ChatScreenMixin {
 	@Inject(at = @At("HEAD"), method = "mouseClicked", cancellable = true)
 	private void mouseClicked(double mouseX, double mouseY, int button, CallbackInfoReturnable<Boolean> cir) {
 		Config config = Config.HANDLER.instance();

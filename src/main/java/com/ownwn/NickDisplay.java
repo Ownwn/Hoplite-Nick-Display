@@ -3,16 +3,11 @@ package com.ownwn;
 import com.ownwn.config.Config;
 import net.fabricmc.api.ClientModInitializer;
 
-import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
-import net.fabricmc.fabric.api.client.keybinding.v1.KeyBindingHelper;
 import net.fabricmc.fabric.api.client.message.v1.ClientReceiveMessageEvents;
 import net.fabricmc.fabric.api.client.rendering.v1.HudRenderCallback;
 import net.minecraft.client.MinecraftClient;
-import net.minecraft.client.option.KeyBinding;
-import net.minecraft.client.util.InputUtil;
 import net.minecraft.text.HoverEvent;
 import net.minecraft.text.Text;
-import org.lwjgl.glfw.GLFW;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -23,20 +18,15 @@ public class NickDisplay implements ClientModInitializer {
 
 	public static final Pattern namePattern = Pattern.compile("You are now nicked as: ([a-zA-Z0-9_]{3,16})");
 	public static String currentNick = "Unknown!";
+	public static Config config;
 
-	public static KeyBinding toggleKey;
 
 	@Override
 	public void onInitializeClient() {
 		Config.HANDLER.load();
-		Config config = Config.HANDLER.instance();
+		config = Config.HANDLER.instance();
 
-		toggleKey = KeyBindingHelper.registerKeyBinding(new KeyBinding(
-				"key.nick-display.toggle",
-				InputUtil.Type.KEYSYM,
-				GLFW.GLFW_KEY_H,
-				"category.nick-display.nick-display"
-		));
+		Keybinds.register();
 
 		ClientReceiveMessageEvents.ALLOW_GAME.register((message, overlay) -> {
 
@@ -58,8 +48,10 @@ public class NickDisplay implements ClientModInitializer {
 			if (!matcher.find()) return true;
 
 			String name = matcher.group(1);
-			if (name != null) currentNick = name;
+			if (name == null) return true;
 
+			currentNick = name;
+			Keybinds.canSendCommand = true;
 
 			return true;
 		});
@@ -76,12 +68,6 @@ public class NickDisplay implements ClientModInitializer {
 			context.drawText(MinecraftClient.getInstance().textRenderer, currentNick, 0, 0, config.color.getRGB(), true);
 			context.getMatrices().pop();
 		});
-
-		ClientTickEvents.END_CLIENT_TICK.register(client -> {
-			while (toggleKey.wasPressed()) {
-				config.enabled = !config.enabled;
-			}
-        });
 	}
 }
 
